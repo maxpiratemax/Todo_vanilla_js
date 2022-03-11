@@ -4,6 +4,22 @@ body {
 	margin: 0;
 }
 
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
 header {
 	padding: 30px 110px 40px;
 	background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
@@ -59,7 +75,7 @@ label {
 }
 
 button {
-	margin: 0 10px;
+	margin: 20px 10px;
 	color: #fff;
 	font-size: 16px;
 	font-weight: 200;
@@ -93,8 +109,8 @@ button:hover::after {
 	border: 2px solid #f6d365;
 	padding: 13px 20px 13px;
 	font-size: 16px;
-	margin-bottom: 50px;
-	outline: none;	
+	margin-bottom: 20px;
+	outline: none;
 	color: #555;
 }
 
@@ -102,3 +118,24 @@ input::placeholder {
 	color: #fdd4c8;
 }
 
+@media(max-width: 439px){
+	h1, h2, .h2 {
+		font-size: 1.5em;
+	}
+	.h2 {
+		font-size: 1em;
+	}
+	button, #todo-input {
+		width: 97%;
+		margin: 10px;
+	}
+	.simple-todo {
+		margin: 0 20px;
+	}
+	header {
+		padding: 20px;
+	}
+	#todo-form {
+		margin-left: -10px;
+	}
+}

@@ -39,6 +39,11 @@ function toggleClick(e) {
     items[element].checked = !items[element].checked;
     localStorage.setItem('items', JSON.stringify(items));
     displayItems(items, itemsList);
+
+    if (e.target.checked) {
+      
+       
+    }
 }
 
 
@@ -47,11 +52,12 @@ addItemsForm.addEventListener('submit', addItem);
 itemsList.addEventListener('click', toggleClick);
 displayItems(items, itemsList);
 
-function clearAll (e) {
-    e.preventDefault();    
+function clearAll(e) {
+    e.preventDefault();
     todoInput.value = "";
     items = [];
     displayItems(items, itemsList);
+    localStorage.setItem('items', JSON.stringify(items));
 }
 
 
