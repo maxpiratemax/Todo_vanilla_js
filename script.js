@@ -22,7 +22,7 @@ function addItem(e) {
         todoInput.focus();
     } else {
         todoInput.placeholder = "Вы ничего не ввели";
-        setTimeout (function(){
+        setTimeout(function () {
             todoInput.placeholder = input;
         }, 2000)
     }
@@ -62,8 +62,8 @@ function clearAll(e) {
 }
 
 itemsList.addEventListener('click', function (e) {
-    let id = e.target;  
-    items = items.filter(function(f){
+    let id = e.target;
+    items = items.filter(function (f) {
         return f.text !== id.textContent;
     });
     localStorage.setItem('items', JSON.stringify(items));
