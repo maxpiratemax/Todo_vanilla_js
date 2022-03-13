@@ -3,6 +3,7 @@ const todoInput = document.querySelector('#todo-input');
 const itemsList = document.querySelector('#todo-list');
 const btnClear = document.querySelector('#clear');
 let items = JSON.parse(localStorage.getItem('items')) || [];
+let input = todoInput.placeholder;
 
 function addItem(e) {
     e.preventDefault();
@@ -19,6 +20,11 @@ function addItem(e) {
         displayItems(items, itemsList);
         this.reset();
         todoInput.focus();
+    } else {
+        todoInput.placeholder = "Вы ничего не ввели";
+        setTimeout (function(){
+            todoInput.placeholder = input;
+        }, 2000)
     }
 };
 
@@ -26,7 +32,7 @@ function displayItems(tasks, taskList) {
 
     taskList.innerHTML = tasks.map((task, index) => {
         return `<li id="li-id${index}"><div class="checkbox"><input type='checkbox' id=${index} data-index='${index}' ${task.checked ? 'checked' : ''}/></div>
-      <label for='item${index}'>${task.text}</label>
+      <label data-tooltip="Нажмите чтобы удалить задачу" for='item${index}' >${task.text}</label>
       </li>`
     }).join('');
 };

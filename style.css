@@ -133,12 +133,63 @@ form {
 
 input#todo-input, button {
 	width: calc(100%/3 - 10px);
+	margin: 0;
 }
 
 input, button {
 	font-size: var(--font);
 	white-space: nowrap;
 }
+
+
+
+[data-tooltip] {
+	position: relative;
+	/* Относительное позиционирование */
+}
+
+[data-tooltip]::after {
+	content: attr(data-tooltip);
+	/* Выводим текст */
+	position: absolute;
+	/* Абсолютное позиционирование */
+	/* width: 300px; */
+	/* Ширина подсказки */
+	left: 0;
+	top: 10px;
+	/* Положение подсказки */
+	background: rgba(246, 211, 101, 0.9);
+	/* Синий цвет фона */
+	color: #fff;
+	/* Цвет текста */
+	padding: 0.5em;
+	/* Поля вокруг текста */
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+	/* Параметры тени */
+	pointer-events: none;
+	/* Подсказка */
+	opacity: 0;
+	/* Подсказка невидима */
+	transition: 1s;
+	/* Время появления подсказки */
+	z-index: 1;
+	white-space: nowrap;
+}
+
+[data-tooltip]:hover::after {
+	opacity: 1;
+	/* Показываем подсказку */
+	top: 2em;
+	/* Положение подсказки */
+}
+
+.tip {
+	display: none;
+	font-size: 10px;
+	margin-top: 40px;
+	color: #999;
+}
+
 
 @media (max-width: 820px) {
 	:root {
@@ -149,8 +200,9 @@ input, button {
 		font-size: var(--font);
 		white-space: nowrap;
 		padding: 20px 10px;
-		width: 97%;
-		margin: 10px;
+		width: calc(100%/3 - 10px);
+		margin: 0;
+
 	}
 
 }
@@ -170,7 +222,7 @@ input, button {
 
 	button, input#todo-input {
 		width: 97%;
-		margin: 10px;
+		margin: 0 0 20px 0;
 		font-size: 16px;
 		text-align: center;
 	}
@@ -180,12 +232,31 @@ input, button {
 	}
 
 	header {
-		padding: 20px;
+		font-size: 0.7em;
+		padding: 5px 20px;
+		background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+		margin-bottom: 30px;
+	}
+
+	.tip {
+		margin-top: 210px;
+		display: block;
+	}
+
+	[data-tooltip]:hover::after {
+		opacity: 0;
+		/* Показываем подсказку */
+		top: 2em;
+		/* Положение подсказки */
+
+	}
+	h1 {
+		margin: 0;
 	}
 }
 
-@media(min-width: 1200px) {
-	:root {
-		--font: 16px;
+	@media(min-width: 1200px) {
+		:root {
+			--font: 16px;
+		}
 	}
-}

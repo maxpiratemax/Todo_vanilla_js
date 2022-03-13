@@ -14,7 +14,7 @@
     <div class="container">
         <header>
 
-            <h1>Список дел</h1>
+            <h1 data-tooltip="Удалить задачу">Список дел</h1>
             <div class="h2">на сегодня</div>
 
         </header>
@@ -27,11 +27,14 @@
                 </ul>
             </div>
             <div class="form__wrapper">
+                
                 <form id="todo-form">
                     <input id="todo-input" name="item" type="text" placeholder="Введите название задачи" autocomplete="off"/>
                     <button type="submit">Добавить задачу</button>
                     <button id="clear">Очистить список задач</button>
+                    
                 </form>
+                <div class="tip">нажмите на задачу чтобы удалить</div>
             </div>
         </div>
     </div>
