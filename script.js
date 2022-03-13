@@ -25,7 +25,7 @@ function addItem(e) {
 function displayItems(tasks, taskList) {
 
     taskList.innerHTML = tasks.map((task, index) => {
-        return `<li><div class="checkbox"><input type='checkbox' id=item${index} data-index='${index}' ${task.checked ? 'checked' : ''}/></div>
+        return `<li id="li-id${index}"><div class="checkbox"><input type='checkbox' id=${index} data-index='${index}' ${task.checked ? 'checked' : ''}/></div>
       <label for='item${index}'>${task.text}</label>
       </li>`
     }).join('');
@@ -39,11 +39,6 @@ function toggleClick(e) {
     items[element].checked = !items[element].checked;
     localStorage.setItem('items', JSON.stringify(items));
     displayItems(items, itemsList);
-
-    if (e.target.checked) {
-      
-       
-    }
 }
 
 
@@ -60,4 +55,12 @@ function clearAll(e) {
     localStorage.setItem('items', JSON.stringify(items));
 }
 
+itemsList.addEventListener('click', function (e) {
+    let id = e.target;  
+    items = items.filter(function(f){
+        return f.text !== id.textContent;
+    });
+    localStorage.setItem('items', JSON.stringify(items));
+    id.parentElement.remove();
+})
 
