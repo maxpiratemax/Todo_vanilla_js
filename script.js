@@ -31,7 +31,7 @@ function addItem(e) {
 function displayItems(tasks, taskList) {
 
     taskList.innerHTML = tasks.map((task, index) => {
-        return `<li id="li-id${index}"><div class="checkbox"><input type='checkbox' id=${index} data-index='${index}' ${task.checked ? 'checked' : ''}/></div>
+        return `<li id="li-id${index}"><div class="checkbox"><input type='checkbox' id=item${index} data-index='${index}' ${task.checked ? 'checked' : ''}/></div>
       <label data-tooltip="Нажмите чтобы удалить задачу" for='item${index}' >${task.text}</label>
       </li>`
     }).join('');
