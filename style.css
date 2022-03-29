@@ -8,6 +8,9 @@ body {
 	line-height: 1.5;
 	margin: 0;
 }
+.none {
+	display: none;
+}
 
 *,
 *:before,
@@ -25,10 +28,16 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0 auto;
 }
 
+
 header {
 	padding: 30px var(--mar-left) 40px;
 	background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 	margin-bottom: 30px;
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	align-items: center;
+
 }
 
 header h1 {
@@ -37,7 +46,7 @@ header h1 {
 }
 
 h1 {
-	font-size: 38px;
+	font-size: 2em;
 	font-weight: 600;
 	margin-bottom: 5px;
 }
@@ -141,8 +150,6 @@ input, button {
 	white-space: nowrap;
 }
 
-
-
 [data-tooltip] {
 	position: relative;
 }
@@ -175,6 +182,20 @@ input, button {
 	color: #999;
 }
 
+.img__small {
+	display: none;
+}
+
+.img {
+	display: block;
+}
+
+
+@media(min-width: 1200px) {
+	:root {
+		--font: 16px;
+	}
+}
 
 @media (max-width: 820px) {
 	:root {
@@ -189,10 +210,17 @@ input, button {
 		margin: 0;
 
 	}
-
+}
+@media(max-width: 606px) {
+	h1 {
+		font-size: 1.5em;
+	}
+	.h2 {
+		font-size: 1em;
+	}
 }
 
-@media(max-width: 500px) {
+@media(max-width: 500px), (max-height: 374px) {
 	h1, h2, .h2 {
 		font-size: 1.5em;
 	}
@@ -237,11 +265,15 @@ input, button {
 	h1 {
 		margin: 0;
 	}
-}
 
-@media(min-width: 1200px) {
-	:root {
-		--font: 16px;
+	.img__small {
+		display: block;
+	}
+
+	.img {
+		display: none;
 	}
 }
+
+
 
