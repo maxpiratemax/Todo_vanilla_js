@@ -66,16 +66,17 @@ function clearAll(e) {
 }
 
 itemsList.addEventListener('click', function (e) {
-
+    
     let id = e.target;
 
-    if (id.value != 0) {
+    if (id.value != 0 && !id.matches('ul')) {
         items = items.filter(function (f) {
             return f.text !== id.textContent;
         });
         localStorage.setItem('items', JSON.stringify(items));
 
         id.parentElement.remove();
+
     }
 })
 
